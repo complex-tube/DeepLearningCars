@@ -4,9 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 #endregion
 
-/// <summary>
-/// Class for displaying a neural networks topology.
-/// </summary>
+
 public class UINeuralNetworkPanel : MonoBehaviour
 {
     #region Members

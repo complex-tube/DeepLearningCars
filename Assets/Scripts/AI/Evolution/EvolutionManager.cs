@@ -39,6 +39,8 @@ public class EvolutionManager : MonoBehaviour
     [SerializeField]
     private bool ElitistSelection = false;
 
+    [SerializeField] private bool isAllMutatable = false;
+
     // Слои FNN (Нейронной сети с прямой связью)
     [SerializeField]
     private uint[] FNNTopology;
@@ -95,14 +97,21 @@ public class EvolutionManager : MonoBehaviour
             //Конфигурация, когда отбор элитарный
             geneticAlgorithm.Selection = GeneticAlgorithm.DefaultSelectionOperator;
             geneticAlgorithm.Recombination = RandomRecombination;
-            geneticAlgorithm.Mutation = MutateAllButBestTwo;
         }
         else
         {   
             //Конфигурация, когда отбор стохастический
             geneticAlgorithm.Selection = RemainderStochasticSampling;
             geneticAlgorithm.Recombination = RandomRecombination;
+        }
+
+        if (isAllMutatable)
+        {
             geneticAlgorithm.Mutation = MutateAll;
+        }
+        else
+        {
+            geneticAlgorithm.Mutation = MutateAllButBestTwo;
         }
         
         AllAgentsDied += geneticAlgorithm.EvaluationFinished;

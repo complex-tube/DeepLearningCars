@@ -19,10 +19,10 @@ public class GeneticAlgorithm
     public const float DefCrossSwapProb = 0.6f;
 
     /// Стандартная вероятность мутации параметров
-    public const float DefMutationProb = 0.4f;
+    public const float DefMutationProb = 0.3f;
     
     /// Макимальное значение (+-) на которое может быть мутирован параметр
-    public const float DefMutationAmount = 2.0f;
+    public const float DefMutationAmount = 1.7f;
     
     /// Стандартный процент генотипов, которые могуть быть мутированы в новой популяции
     public const float DefMutationPerc = 1.0f;

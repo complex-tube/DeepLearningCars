@@ -82,6 +82,9 @@ public class TrackManager : MonoBehaviour
 
     private CarController secondBestCar = null;
     
+    /// Событие изменения воторой лучшей машины
+    public event System.Action<CarController> SecondBestCarChanged;
+    
     /// Нынешняя вторая лучшая машина
     public CarController SecondBestCar
     {
@@ -102,9 +105,6 @@ public class TrackManager : MonoBehaviour
             }
         }
     }
-    
-    /// Событие изменения воторой лучшей машины
-    public event System.Action<CarController> SecondBestCarChanged;
     #endregion
 
     
@@ -197,7 +197,7 @@ public class TrackManager : MonoBehaviour
         }
     }
 
-    /// Обонвить все машины и запустить их на трассе
+    /// Обновить все машины и запустить их на трассе
     public void Restart()
     {
         foreach (RaceCar car in cars)
